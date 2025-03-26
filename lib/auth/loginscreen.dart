@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mypills/auth/signupscreen.dart';
+import 'package:mypills/auth/forgotpass.dart';
 import '../widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Form(
             key: _formKey,
             child: Padding(
-              padding: const EdgeInsets.only(top: 50), // Add top padding
+              padding: const EdgeInsets.only(top: 30), // Reduced top padding
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 30), // Reduced spacing
                   Text(
                     'LOGIN',
                     style: GoogleFonts.poppins(
@@ -70,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 30), // Reduced spacing
                   CustomTextField(
                     controller: _emailController,
                     label: 'E-mail',
@@ -108,7 +109,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'Esqueci minha senha',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30), // Reduced spacing
                   ElevatedButton(
                     onPressed: _submitForm,
                     style: ElevatedButton.styleFrom(
@@ -120,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10), // Reduced spacing
                   TextButton(
                     onPressed: () {
                       Navigator.push(
